@@ -20,3 +20,7 @@ Suggetions & Contribution to Project Will be Helpfull ...
 
 
 Happy Hunting ,
+
+
+#Installation & Usage
+Clone this Repository and first run install.sh from /Tool directory 
