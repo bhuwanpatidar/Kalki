@@ -4,9 +4,13 @@ git clone https://github.com/TheRook/subbrute.git
 git clone https://github.com/robre/scripthunter.git
 git clone https://github.com/aboul3la/Sublist3r.git
 git clone https://github.com/tomnomnom/assetfinder.git
+git clone https://github.com/jobertabma/relative-url-extractor.git
 sudo  go install -v github.com/tomnomnom/assetfinder
 sudo cp /root/go/bin/assetfinder /usr/local/go/bin/
 sudo snap install httpx
+sudo apt install npm
+sudo apt install xterm
+npm -g install js-beautify
 snap install amass
 sudo apt-get install python-dnspython
 sudo yum install python-argparse 
@@ -21,4 +25,4 @@ sudo go install -v github.com/lc/subjs@latest && sudo cp /root/go/bin/subjs /usr
 sudo go install -v github.com/hakluke/hakrawler@latest && sudo cp /root/go/bin/hakrawler /usr/bin/
 sudo go install -v github.com/tomnomnom/unfurl@latest && sudo cp /root/go/bin/unfurl /usr/bin/
 sudo apt install ffuf
-
+sudo go install github.com/projectdiscovery/katana/cmd/katana@latest && sudo cp /root/go/bin/katana /usr/bin
