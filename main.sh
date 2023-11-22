@@ -8,11 +8,11 @@ echo ".         / ,<  / /| | / /   / ,<   / /                   ."
 echo ".        / /| |/ ___ |/ /___/ /| |_/ /                    ."
 echo ".       /_/ |_/_/  |_/_____/_/ |_/___/                    ."
 echo ".                           Author:- Bhuwan Patidar       ."
-                                                       
+
 echo "==========================================================="
 echo ".                                                         ."
-echo ".                                                         ." 
-read -p ".    Enter domain name:  " i  
+echo ".                                                         ."
+read -p ".    Enter domain name:  " i
 echo ". ________________________________________________________."
 
 echo " "
@@ -31,19 +31,20 @@ mkdir -p ./$i/Subs
 
 # Subdomain's Finding ....
 
-#xterm -e python3 ./Tool/knock/knockpy.py $i -o ./$i/ &
-#amass enum -d $i -o ./$i/Subs/amass.txt --passive 
-#assetfinder $i | tee ./$i/Subs/asset.txt
+xterm -e python3 ./Tool/knock/knockpy.py $i -o ./$i/ &
+amass enum -d $i -o ./$i/Subs/amass.txt --passive
+assetfinder $i | tee ./$i/Subs/asset.txt
 subfinder -d $i | tee ./$i/Subs/finder.txt
 curl -s "https://jldc.me/anubis/subdomains/$i" | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | anew | tee ./$i/Subs/jldc.txt
 
 # All in One Subdomains
 cat ./$i/Subs/* >> ./$i/Subs/allhost.txt
-cat ./$i/Subs/allhost.txt | anew | tee ./$i/Subs/ost.txt
-cat ./$i/Subs/ost.txt | httprobe > ./$i/Subs/subdomains.txt
+cat ./$i/Subs/allhost.txt | anew | tee ./$i/Subs/hosted.txt
+cat ./$i/Subs/hosted.txt | httprobe > ./$i/Subs/AliveSubs.txt
+grep "$i" ./$i/Subs/AliveSubs.txt > ./$i/Subs/hostbu.txt
+cat hostbu.txt | sort -u > host.txt
 echo "sleeping for 10 "
 
-cp host.txt ./$i/Subs/
 echo " wack upsssssss"
 sleep 5
 
@@ -70,9 +71,9 @@ xterm -e katana -list ./$i/Subs/host.txt -o ./$i/Urls/Katana.txt &
 
 FILESO=./$i/Subs/host.txt
 while read -r LINE
-do 
-	(( count++ ))
-	echo "$LINE" | waybackurls > ./$i/Urls/SeparateUrls/$count
+do
+        (( count++ ))
+        echo "$LINE" | katana > ./$i/Urls/SeparateUrls/$count
 done < $FILESO
 
 
@@ -99,8 +100,8 @@ r=0
 FileJs=./$i/Js/JSLink.txt
 while read -r JSLINE
 do
-	((r++))
-	curl -s $JSLINE | tee ./$i/Js/JsOut/$r
+        ((r++))
+        curl -s $JSLINE | tee ./$i/Js/JsOut/$r
 done < $FileJs
 
 find ./$i/Js/JsOut/ -type f -size 0k -exec rm -v {} \;
@@ -114,25 +115,20 @@ echo ".                                                         ."
 echo ".  _____     _Creating __Dic_tionary  __    __ ____      . "
 sleep 5
 
-mkdir ./$i/Dictionary 
-mkdir ./$i/Dictionary/all 
+mkdir ./$i/Dictionary
+mkdir ./$i/Dictionary/all
 dict=0
 DicJs=./$i/Urls/TargetUrl.txt
 while read -r DICLINE
 do
-	((dict++))
-	curl -s $DICLINE | ./Tool/relative-url-extractor/extract.rb | tee ./$i/Dictionary/all/$dict	
+        ((dict++))
+        curl -s $DICLINE | ./Tool/relative-url-extractor/extract.rb | tee ./$i/Dictionary/all/$dict
 done < $DicJs
 
 find ./$i/Dictionary/all/ -type f -size 0k -exec rm -v {} \;
 
 cat ./$i/Dictionary/all/* >> ./$i/Dictionary/One.txt
 
-cat ./$i/Dictionary/One.txt | anew | ./$i/Dictionary/Final.txt
+cat ./$i/Dictionary/One.txt | anew > ./$i/Dictionary/Final.txt
 
 rm One.txt
-
-
-
-
-
