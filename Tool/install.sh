@@ -13,7 +13,7 @@ sudo apt install xterm
 npm -g install js-beautify
 snap install amass
 sudo apt-get install python-dnspython
-sudo yum install python-argparse 
+sudo yum install python-argparse
 sudo apt-get install python-requests
 sudo go install -v github.com/tomnomnom/anew@latest && sudo cp /root/go/bin/anew /usr/bin/
 sudo go install -v github.com/tomnomnom/httprobe@latest &&sudo  cp /root/go/bin/httprobe /usr/bin/
@@ -25,4 +25,5 @@ sudo go install -v github.com/lc/subjs@latest && sudo cp /root/go/bin/subjs /usr
 sudo go install -v github.com/hakluke/hakrawler@latest && sudo cp /root/go/bin/hakrawler /usr/bin/
 sudo go install -v github.com/tomnomnom/unfurl@latest && sudo cp /root/go/bin/unfurl /usr/bin/
 sudo apt install ffuf
-sudo go install github.com/projectdiscovery/katana/cmd/katana@latest && sudo cp /root/go/bin/katana /usr/bin
+sudo go install -v github.com/projectdiscovery/katana/cmd/katana@latest && sudo cp /root/go/bin/katana /usr/bin
+sudo go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest && sudo cp /root/go/bin/naabu /usr/bin
