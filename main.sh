@@ -30,8 +30,6 @@ mkdir -p ./$i/Subs
 
 
 # Subdomain's Finding ....
-
-xterm -e python3 ./Tool/knock/knockpy.py $i -o ./$i/ &
 amass enum -d $i -o ./$i/Subs/amass.txt --passive
 assetfinder $i | tee ./$i/Subs/asset.txt
 subfinder -d $i | tee ./$i/Subs/finder.txt
@@ -67,7 +65,7 @@ echo "         Wait tool is utilizing your pricious time            "
 mkdir ./$i/Urls
 mkdir ./$i/Urls/SeparateUrls
 
-xterm -e katana -list ./$i/Subs/host.txt -o ./$i/Urls/Katana.txt &
+katana -list ./$i/Subs/host.txt -o ./$i/Urls/Katana.txt &
 
 FILESO=./$i/Subs/host.txt
 while read -r LINE
@@ -106,8 +104,6 @@ done < $FileJs
 
 find ./$i/Js/JsOut/ -type f -size 0k -exec rm -v {} \;
 
-xterm -e nuclei -l ./$i/Js/JSLink.txt -t ~/nuclei-templates/exposures/ -o /$i/Js/NucleiResult.txt &
-
 echo "..........................................................."
 echo ".                                                         ."
 echo ".           __ __ ___    __    __ __ ____                 . "
@@ -129,6 +125,3 @@ find ./$i/Dictionary/all/ -type f -size 0k -exec rm -v {} \;
 
 cat ./$i/Dictionary/all/* >> ./$i/Dictionary/One.txt
 
-cat ./$i/Dictionary/One.txt | anew > ./$i/Dictionary/Final.txt
-
-rm One.txt
