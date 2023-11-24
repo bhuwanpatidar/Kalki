@@ -78,7 +78,7 @@ FILESO=./$i/Subs/host.txt
 while read -r LINE
 do
         (( count++ ))
-        echo "$LINE" | katana > ./$i/Urls/SeparateUrls/$count
+        echo "$LINE" | waybackurls > ./$i/Urls/SeparateUrls/$count
 done < $FILESO
 
 
