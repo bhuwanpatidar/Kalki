@@ -84,7 +84,7 @@ done < $FILESO
 
 cat ./$i/Urls/SeparateUrls/* >> ./$i/Urls/AllOne.txt
 cat ./$i/Urls/AllOne.txt | anew | tee ./$i/Urls/Fine.txt
-
+rm ./$i/Urls/AllOne.txt
 
 cat ./$i/Urls/Fine.txt | grep "$i" | tee ./$i/Urls/TargetUrl.txt
 
