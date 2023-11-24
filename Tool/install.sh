@@ -1,3 +1,4 @@
+sudo apt install golang-go
 git clone https://github.com/guelfoweb/knock.git
 git clone https://github.com/danielmiessler/SecLists.git
 git clone https://github.com/TheRook/subbrute.git
