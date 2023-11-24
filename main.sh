@@ -43,6 +43,13 @@ grep "$i" ./$i/Subs/AliveSubs.txt > ./$i/Subs/hostbu.txt
 cat hostbu.txt | sort -u > host.txt
 echo "sleeping for 10 "
 
+# Removing unwanted files.....
+rm ./$i/Subs/amass.txt ./$i/Subs/asset.txt  ./$i/Subs/finder.txt  ./$i/Subs/jldc.txt ./$i/Subs/allhost.txt ./$i/Subs/AliveSubs.txt
+
+
+
+
+
 echo " wack upsssssss"
 sleep 5
 
