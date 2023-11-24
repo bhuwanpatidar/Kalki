@@ -115,20 +115,3 @@ echo "..........................................................."
 echo ".                                                         ."
 echo ".           __ __ ___    __    __ __ ____                 . "
 echo ".                                                         ."
-echo ".  _____     _Creating __Dic_tionary  __    __ ____      . "
-sleep 5
-
-mkdir ./$i/Dictionary
-mkdir ./$i/Dictionary/all
-dict=0
-DicJs=./$i/Urls/TargetUrl.txt
-while read -r DICLINE
-do
-        ((dict++))
-        curl -s $DICLINE | ./Tool/relative-url-extractor/extract.rb | tee ./$i/Dictionary/all/$dict
-done < $DicJs
-
-find ./$i/Dictionary/all/ -type f -size 0k -exec rm -v {} \;
-
-cat ./$i/Dictionary/all/* >> ./$i/Dictionary/One.txt
-
