@@ -6,7 +6,7 @@ git clone https://github.com/robre/scripthunter.git
 git clone https://github.com/aboul3la/Sublist3r.git
 git clone https://github.com/tomnomnom/assetfinder.git
 git clone https://github.com/jobertabma/relative-url-extractor.git
-sudo  go install -v github.com/tomnomnom/assetfinder
+sudo  go install -v github.com/tomnomnom/assetfinder@latest && sudo cp /root/go/bin/assetfinder /usr/bin/
 sudo cp /root/go/bin/assetfinder /usr/local/go/bin/
 sudo snap install httpx
 sudo apt install npm
