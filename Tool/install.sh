@@ -9,6 +9,7 @@ sudo  go install -v github.com/tomnomnom/assetfinder
 sudo cp /root/go/bin/assetfinder /usr/local/go/bin/
 sudo snap install httpx
 sudo apt install npm
+sudo apt install arjun
 sudo apt install xterm
 npm -g install js-beautify
 snap install amass
