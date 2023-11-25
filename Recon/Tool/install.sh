@@ -14,7 +14,7 @@ sudo apt install snap
 sudo apt install arjun
 sudo apt install xterm
 npm -g install js-beautify
-snap install amass
+sudo apt install amass
 sudo apt-get install python-dnspython
 sudo yum install python-argparse
 sudo apt-get install python-requests
