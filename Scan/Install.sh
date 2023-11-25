@@ -1,3 +1,4 @@
+sudo apt install python
 sudo apt install nikto
 sudo apt install nmap
 sudo apt install wapiti
