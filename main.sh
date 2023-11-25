@@ -89,6 +89,16 @@ rm ./$i/Urls/AllOne.txt
 cat ./$i/Urls/Fine.txt | grep "$i" | tee ./$i/Urls/TargetUrl.txt
 
 
+mkdir ./$i/Arjun_out
+FILEAR= ./$i/Urls/TargetUrl.txt
+while read -r ALINE
+do
+        ((count++))
+        arjun -i "$ALINE" --passive --stable -c 40 -d 0.30 -oT ./$i/Arjun_out/$count
+done < $FILEAR
+
+
+
 echo "..........................................................."
 echo ".                                                         ."
 echo ".           __ __ ___    __    __ __ ____                 . "
