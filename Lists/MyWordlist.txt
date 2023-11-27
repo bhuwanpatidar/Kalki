@@ -1,0 +1,7 @@
+login.php
+phpinfo.php
+wp-login.php
+view/dashboard.php
+.env
+/wp-admin/.env
+view/.env
