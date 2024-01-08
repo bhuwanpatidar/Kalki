@@ -73,7 +73,7 @@ echo "         Wait tool is utilizing your pricious time            "
 mkdir ./$i/Urls
 mkdir ./$i/Urls/SeparateUrls
 
-katana -list ./$i/Subs/host.txt -o ./$i/Urls/Katana.txt &
+katana -list ./$i/Subs/host.txt -o ./$i/Urls/Katana.txt 
 
 FILESO=./$i/Subs/host.txt
 while read -r LINE
