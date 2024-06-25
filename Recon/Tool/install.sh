@@ -3,6 +3,17 @@ sudo  go install -v github.com/tomnomnom/assetfinder@latest && sudo cp /root/go/
 sudo snap install httpx
 sudo apt install npm
 sudo apt install snap
+sudo apt install subfinder
+sudo apt install assetfinder
+sudo apt install snapd
+sudo apt install golang-go
+sudo apt install amass
+git clone https://github.com/six2dez/reconftw
+bash ./reconftw/install.sh
+sudo apt install httprobe
+python3 -m pip install shodan mmh3
+sudo apt install jq
+sudo apt install lolcat
 sudo apt install arjun
 git clone https://github.com/danielmiessler/SecLists.git
 npm -g install js-beautify
