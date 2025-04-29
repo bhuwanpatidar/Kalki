@@ -16,9 +16,9 @@ read -p ".    Enter domain name:  " i
 echo ". ________________________________________________________."
 
 echo " "
-echo " Scanning Started For $i"
+echo " Scanning Started For --> $i"
 
-
+sleep 3
 
 
 # Creating directory
@@ -34,7 +34,6 @@ amass enum -d $i -o ./$i/Subs/amass.txt --passive
 assetfinder $i | tee ./$i/Subs/asset.txt
 subfinder -d $i | tee ./$i/Subs/finder.txt
 curl -s https://crt.sh/\?q\=%25.$i\&output=json | jq -r  '.[].name_value' | sed 's/\*\.//g' | sort -u | tee ./$i/Subs/crt.txt
-curl -s "https://jldc.me/anubis/subdomains/$i" | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | anew | tee ./$i/Subs/jldc.txt
 
 # All in One Subdomains
 cat ./$i/Subs/* >> ./$i/Subs/allhost.txt
